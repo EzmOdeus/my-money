@@ -26,8 +26,8 @@ export const Auth = () => {
 
   return (
     <div className="login-page">
-      <h1>Wlcome To EI-Tracker</h1>
-    {/* <img src='./Visual data-amico.svg' width={500}/> */}
+      <h1>Welcome To MY-Money</h1>
+      {/* <img src='./Visual data-amico.svg' width={500}/> */}
       <p>Sign In With Google to Continue</p>
       <button className="login-with-google-btn" onClick={signInWithGoogle}>
         {" "}

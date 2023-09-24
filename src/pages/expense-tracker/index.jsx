@@ -5,8 +5,8 @@ import { useGetTransactions } from "../../hooks/useGetTransactions";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { useNavigate } from "react-router-dom";
 
-import "./styles.css";
 import { auth } from "../../config/firebase-config";
+import "./styless.css";
 // import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
 
 export const ExpenseTracker = () => {
@@ -54,13 +54,18 @@ export const ExpenseTracker = () => {
 
   return (
     <>
-      <div className="expense-tracker">
-        <div className="head">
-          <h1>Welcome {name}</h1>
+      <div className="expense-tracker p-3">
+        <div className="heads flex justify-between items-center md:px-5 ">
+          <h1 className="text-2xl font-semibold md:text-3xl">Welcome {name}</h1>
           {profilePhoto && (
-            <div className="profile">
+            <div className="profile flex justify-center items-center">
               {" "}
-              <img className="profile-photo" src={profilePhoto} alt="ero" />
+              <img
+                className="profile-photo p-2 rounded-full"
+                src={profilePhoto}
+                alt="ero"
+                width={80}
+              />
               <img
                 className="sign-out-button"
                 src="./arrow.png"
@@ -71,20 +76,28 @@ export const ExpenseTracker = () => {
             </div>
           )}
         </div>
-        <div className="count">
-          <div className="container ">
+        <div className="count md:py-[50px] md:flex justify-around items-center">
+          <div className="containers ">
             <div className="balance">
-              <h3 style={{ fontSize: 25, color: "cadetblue" }}>
+              <h3
+                style={{ fontSize: 25, color: "cadetblue", fontWeight: "bold" }}
+              >
                 {" "}
                 Your Balance
               </h3>
               {balance >= 0 ? (
-                <h2 className="green" style={{ fontSize: 23 }}>
+                <h2
+                  className="green text-green-500 font-semibold"
+                  style={{ fontSize: 23 }}
+                >
                   {" "}
                   ${balance}
                 </h2>
               ) : (
-                <h2 style={{ fontSize: 23 }} className="red">
+                <h2
+                  style={{ fontSize: 23 }}
+                  className="red text-red-500 font-semibold"
+                >
                   {" "}
                   -${balance * -1}
                 </h2>
@@ -92,22 +105,41 @@ export const ExpenseTracker = () => {
             </div>
             <div className="summary">
               <div className="income">
-                <h4 style={{ fontSize: 20, color: "#219ebc" }}> Income</h4>
-                <p style={{ fontSize: 20 }} className="green">
+                <h4
+                  style={{ fontSize: 20, color: "#219ebc", fontWeight: "bold" }}
+                >
+                  {" "}
+                  Income
+                </h4>
+                <p
+                  style={{ fontSize: 20 }}
+                  className="green text-green-500 font-semibold"
+                >
                   ${income}
                 </p>
               </div>
               <div className="expenses">
-                <h4 style={{ fontSize: 20, color: "#3c6566" }}> Expenses</h4>
-                <p style={{ fontSize: 20 }} className="red">
+                <h4
+                  style={{ fontSize: 20, color: "#3c6566", fontWeight: "bold" }}
+                >
+                  {" "}
+                  Expenses
+                </h4>
+                <p
+                  style={{ fontSize: 20 }}
+                  className="red text-red-500 font-semibold"
+                >
                   ${expenses}
                 </p>
               </div>
             </div>
           </div>
-          <form className="add-transaction" onSubmit={onSubmit}>
+          <form
+            className="add-transaction flex flex-col justify-center items-center"
+            onSubmit={onSubmit}
+          >
             <input
-              className="input"
+              className="input border-[#5f9ea0] rounded-xl border-[4px] shadow-[#66666666] shadow-xl "
               type="text"
               placeholder="Description"
               value={description}
@@ -122,8 +154,8 @@ export const ExpenseTracker = () => {
               required
               onChange={(e) => setTransactionAmount(e.target.value)}
             />
-            <div className="flex">
-              <div className="expenses">
+            <div className="flex   justify-between w-[50%] md:w-[80%]">
+              <div className="expenses text-red-500 flex items-center">
                 <input
                   type="radio"
                   id="expense"
@@ -139,7 +171,7 @@ export const ExpenseTracker = () => {
                   Expense
                 </label>
               </div>
-              <div className="income">
+              <div className="income text-green-600 flex items-center">
                 <input
                   type="radio"
                   id="income"
@@ -156,12 +188,15 @@ export const ExpenseTracker = () => {
                 </label>
               </div>
             </div>
-            <button type="submit"> Add Transaction</button>
+            <button type="submit" className="bg-[#5f9ea0] py-2 rounded-xl">
+              {" "}
+              Add Transaction
+            </button>
           </form>
         </div>
       </div>
-      <div className="transactions">
-        <h3> Transactions</h3>
+      <div className="transactions bg-[rgba(240,248,255,.484)] border-[#5f9ea0] border-solid border-[3px] h-[500px] overflow-auto p-4 sm:mx-1 md:mx-[100px]">
+        <h3 className="font-semibold text-4xl"> Transactions</h3>
         <ul>
           {transactions.map((transaction) => {
             const { description, transactionAmount, transactionType } =

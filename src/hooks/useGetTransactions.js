@@ -6,7 +6,7 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
-import { db } from "../config/firebase-config";
+import {db} from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 export const useGetTransactions = () => {
@@ -45,8 +45,8 @@ export const useGetTransactions = () => {
           } else {
             totalIncome += Number(data.transactionAmount);
           }
-
-          console.log(totalExpenses, totalIncome);
+          
+          // console.log(totalExpenses, totalIncome);
         });
 
         setTransactions(docs);
