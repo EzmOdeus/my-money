@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/bootstrap.css";
 import "../css/style.css";
 import "../css/responsive.css";
@@ -11,10 +11,17 @@ import {
   BsGithub,
   BsSearch,
 } from "react-icons/bs";
-import {BiUser} from 'react-icons/bi'
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { BiUser } from 'react-icons/bi';
 import { ExpenseTracker } from './expense-tracker/index';
 import { Link } from "react-router-dom";
 function Home() {
+  const [toggle, settoggle] = useState(false);
+  const togglebtn = () => {
+    settoggle(!toggle)
+  console.log(toggle)}
+  
+  
   return (
     <>
       <div className="hero_area">
@@ -31,19 +38,25 @@ function Home() {
                 <span>MY-Money</span>
               </a>
 
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+              {toggle == false ? (
+                <AiOutlineMenu
+                  style={{ fontSize: 30, color: "whitesmoke" }}
+                  onClick={togglebtn}
+                />
+              ) : (
+                <AiOutlineClose
+                  style={{ fontSize: 30, color: "whitesmoke" }}
+                  onClick={togglebtn}
+                />
+              )}
+              <div
+                className={
+                  toggle == false
+                    ? "max-sm:hidden navbar-collapse"
+                    : " navbar-collapse"
+                }
+                id="navbarSupportedContent"
               >
-                <span className=""> </span>
-              </button>
-
-              <div className=" navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ">
                   <li className="nav-item active">
                     <Link className="nav-link" href="#">
