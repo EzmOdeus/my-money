@@ -54,12 +54,12 @@ function Home() {
               <div
                 className={
                   toggle == false
-                    ? "max-sm:hidden navbar-collapse"
+                    ? "max-md:hidden navbar-collapse"
                     : " navbar-collapse"
                 }
                 id="navbarSupportedContent"
               >
-                <ul className="navbar-nav ">
+                <ul className="navbar-nav  ">
                   <li className="nav-item active">
                     <Link className="nav-link" href="#" onClick={togglebtn}>
                       Home
@@ -102,7 +102,7 @@ function Home() {
                       className="btn  my-2 my-sm-0 nav_search-btn"
                       type="submit"
                     >
-                      <BsSearch />
+                      <BsSearch className="max-md:hidden" />
                     </button>
                   </form>
                 </ul>
