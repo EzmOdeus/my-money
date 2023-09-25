@@ -40,11 +40,13 @@ function Home() {
 
               {toggle == false ? (
                 <AiOutlineMenu
+                  className="md:hidden"
                   style={{ fontSize: 30, color: "whitesmoke" }}
                   onClick={togglebtn}
                 />
               ) : (
                 <AiOutlineClose
+                  className="md:hidden"
                   style={{ fontSize: 30, color: "whitesmoke" }}
                   onClick={togglebtn}
                 />
