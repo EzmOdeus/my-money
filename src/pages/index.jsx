@@ -110,7 +110,7 @@ function Home() {
             className="carousel slide"
             data-ride="carousel"
           >
-            <div className="carousel-inner">
+            <div className="carousel-inner pt-5">
               <div className="carousel-item active">
                 <div className="container ">
                   <div className="row">
