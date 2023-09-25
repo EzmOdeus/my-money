@@ -59,27 +59,31 @@ function Home() {
               >
                 <ul className="navbar-nav ">
                   <li className="nav-item active">
-                    <Link className="nav-link" href="#">
+                    <Link className="nav-link" href="#" onClick={togglebtn}>
                       Home
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#about">
+                    <a className="nav-link" href="#about" onClick={togglebtn}>
                       About
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#services">
+                    <a
+                      className="nav-link"
+                      href="#services"
+                      onClick={togglebtn}
+                    >
                       Services
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#whyus">
+                    <a onClick={togglebtn} className="nav-link" href="#whyus">
                       Why Us
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#team">
+                    <a className="nav-link" onClick={togglebtn} href="#team">
                       Team
                     </a>
                   </li>
